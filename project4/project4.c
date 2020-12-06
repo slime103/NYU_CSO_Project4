@@ -75,6 +75,7 @@ while (scanf("%c", &input))
     //Step 2 Recieve input and retrieve result
     unsigned entry = 0;
     unsigned char validPPN = 0;
+    unsigned char byteFound = 0;
 
     for (int i = 0; i < 3; i++)
     {
@@ -134,20 +135,18 @@ while (scanf("%c", &input))
                             case 3: printf("Cache hit: %x\n", aCache[m].blk3);
                             break;
                         }
-                    }
-                    else
-                    {
-                        printf("Can not be determined\n");
+                        byteFound = 1;
                     }
                 }
             }
         }
-        else
+        if (!byteFound)
         {
             printf("Can not be determined\n");
         }
 
         validPPN = 0;
+        byteFound = 0;
 
     }
 }
